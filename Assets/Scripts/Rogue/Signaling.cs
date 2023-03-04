@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Signaling : MonoBehaviour
 {
     [SerializeField] private int _duration;
@@ -17,12 +19,15 @@ public class Signaling : MonoBehaviour
 
         if (isDanger == true)
         {
+            _signal.enabled = true;
             _target = _maxVolume;
         }
         else
         {
             _target = 0;
         }
+
+        StartCoroutine(UseSound());
     }
 
     private void Start()
@@ -30,9 +35,19 @@ public class Signaling : MonoBehaviour
         _signal = GetComponent<AudioSource>();
     }
 
-    private void Update()
+    private IEnumerator UseSound()
     {
-        _elapsedTime += Time.deltaTime;
-        _signal.volume = Mathf.MoveTowards(_signal.volume, _target, _elapsedTime / _duration);
+        while (_signal.volume != _target)
+        {
+            _elapsedTime += Time.deltaTime;
+            _signal.volume = Mathf.MoveTowards(_signal.volume, _target, _elapsedTime / _duration);
+
+            yield return null;
+        }
+
+        if(_signal.volume == 0)
+        {
+            _signal.enabled = false;
+        }
     }
 }

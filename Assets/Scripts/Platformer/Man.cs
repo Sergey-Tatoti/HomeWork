@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
+
 public class Man : MonoBehaviour
 {
+    private const string Speed = "Speed";
+    private const string Jump = "Jump";
     [SerializeField] private int _speed;
     [SerializeField] private int _jumpForce;
 
@@ -20,10 +26,10 @@ public class Man : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
         MoveController();
-        Jump();
+        JumpController();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -41,7 +47,7 @@ public class Man : MonoBehaviour
 
     private void MoveController()
     {
-        _animator.SetFloat("Speed", 0);
+        _animator.SetFloat(Speed, 0);
 
         if (Input.GetKey(KeyCode.D))
             DirectMove(false, _speed);
@@ -54,19 +60,19 @@ public class Man : MonoBehaviour
     {
         _spriteRenderer.flipX = isLeft;
         transform.Translate(Vector3.right * speed * Time.deltaTime);
-        _animator.SetFloat("Speed", 2);
+        _animator.SetFloat(Speed, 2);
     }
 
-    private void Jump()
+    private void JumpController()
     {
-        _animator.SetBool("Jump", false);
+        _animator.SetBool(Jump, false);
 
         if (Input.GetKey(KeyCode.Space))
         {
             if (_countJump > 0)
             {
                 _rigidbody2D.AddForce(Vector2.up * _jumpForce);
-                _animator.SetBool("Jump", true);
+                _animator.SetBool(Jump, true);
                 _countJump--;
             }
         }

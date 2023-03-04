@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+
 public class Rogue : MonoBehaviour
 {
     [SerializeField] private int _speed;
@@ -13,7 +15,8 @@ public class Rogue : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    void Update()
+
+    private void Update()
     {
         transform.Translate(Vector3.right * _speed * Time.deltaTime);
 

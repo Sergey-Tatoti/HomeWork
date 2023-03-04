@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+
 public class Troll : MonoBehaviour
 {
     [SerializeField] private int _speed;
@@ -10,12 +12,12 @@ public class Troll : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
-    void Awake()
+    private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void Update()
     {
         transform.Translate(Vector3.right * _speed * Time.deltaTime);
 
