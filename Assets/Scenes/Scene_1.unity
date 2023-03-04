@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ded895de3937b40b6671ed5327bd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zoombie: {fileID: 1379175762862729831, guid: 1a897a73b86d144428c86622dadaabc1, type: 3}
+  _zoombie: {fileID: 470292450718235384, guid: 1a897a73b86d144428c86622dadaabc1, type: 3}
   _flagsRespawn:
   - {fileID: 1475155129}
   - {fileID: 1672144122}

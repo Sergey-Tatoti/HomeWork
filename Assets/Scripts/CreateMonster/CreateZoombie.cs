@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CreateZoombie : MonoBehaviour
 {
-    [SerializeField] private GameObject _zoombie;
+    [SerializeField] private Zoombie _zoombie;
     [SerializeField] private Transform[] _flagsRespawn;
 
     private int TimeCreated = 2;
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(Create());
     }
