@@ -7,6 +7,7 @@ using UnityEngine;
 public class Alarm : MonoBehaviour
 {
     private Signaling _signaling;
+    private int _maxVolume = 1;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class Alarm : MonoBehaviour
     {
         if (other.TryGetComponent<Rogue>(out Rogue rogue))
         {
-            _signaling.ControlSound(true);
+            StartCoroutine(_signaling.UseSound(_maxVolume));
         }
     }
 
@@ -25,7 +26,7 @@ public class Alarm : MonoBehaviour
     {
         if (other.TryGetComponent<Rogue>(out Rogue rogue))
         {
-            _signaling.ControlSound(false);
+            StartCoroutine(_signaling.UseSound(0));
         }
     }
 }

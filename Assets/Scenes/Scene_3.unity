@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219640d0ffa81264d821cbef032aad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 1
   _leftFlag: {fileID: 2036785157}
   _rightFlag: {fileID: 2023312716}
 --- !u!50 &732598498
@@ -1079,8 +1079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b2e2cf9de9c1c46a012017fa9023b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
-  _jumpForce: 350
   _camera: {fileID: 620184818}
 --- !u!50 &1898416816
 Rigidbody2D:
