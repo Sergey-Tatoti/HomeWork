@@ -12,6 +12,10 @@ public class Signaling : MonoBehaviour
     private float _elapsedTime;
     private int _target;
     private int _maxVolume = 1;
+    private void Start()
+    {
+        _signal = GetComponent<AudioSource>();
+    }
 
     public void ControlSound(bool isDanger)
     {
@@ -28,11 +32,6 @@ public class Signaling : MonoBehaviour
         }
 
         StartCoroutine(UseSound());
-    }
-
-    private void Start()
-    {
-        _signal = GetComponent<AudioSource>();
     }
 
     private IEnumerator UseSound()

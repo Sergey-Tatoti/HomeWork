@@ -19,13 +19,20 @@ public class Troll : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.right * _speed * Time.deltaTime);
+        Move();
+    }
 
+    private void Move()
+    {
         ChangeDirection();
+
+        transform.Translate(Vector3.right * _speed * Time.deltaTime);
     }
 
     private void ChangeDirection()
     {
+        transform.Translate(Vector3.right * _speed * Time.deltaTime);
+
         if (transform.position.x <= _leftFlag.position.x)
         {
             _spriteRenderer.flipX = false;

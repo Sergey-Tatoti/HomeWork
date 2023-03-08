@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerZombie : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     [SerializeField] private int _speed;
     
-    void Update()
+    private void Update()
     {
         transform.Translate(Vector3.left * _speed * Time.deltaTime);
     }
