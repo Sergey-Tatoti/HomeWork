@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Signaling))]
 
-public class Alarm : MonoBehaviour
+public class ProtectionSystem : MonoBehaviour
 {
     private Signaling _signaling;
     private int _maxVolume = 1;

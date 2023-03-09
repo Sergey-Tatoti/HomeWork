@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class JumpController : MonoBehaviour
+public class JumpMan : MonoBehaviour
 {
     private const string Jump = "Jump";
 

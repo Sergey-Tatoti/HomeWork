@@ -9,7 +9,6 @@ public class Signaling : MonoBehaviour
     [SerializeField] private int _duration;
 
     private AudioSource _signal;
-    private float _elapsedTime;
 
     private void Start()
     {
@@ -18,13 +17,14 @@ public class Signaling : MonoBehaviour
 
     public IEnumerator UseSound(int target)
     {
+        float elapsedTime = 0;
+
         _signal.enabled = true;
-        _elapsedTime = 0;
 
         while (_signal.volume != target)
         {
-            _elapsedTime += Time.deltaTime;
-            _signal.volume = Mathf.MoveTowards(_signal.volume, target, _elapsedTime / _duration);
+            elapsedTime += Time.deltaTime;
+            _signal.volume = Mathf.MoveTowards(_signal.volume, target, elapsedTime / _duration);
 
             yield return null;
         }

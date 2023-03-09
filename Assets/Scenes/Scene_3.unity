@@ -703,6 +703,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3211742538634753186, guid: 308504abc0876d1479b6520c4acd4272, type: 3}
   m_PrefabInstance: {fileID: 3211742539333723262}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &732598493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732598492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8859db773bc7864cbc7854d3718693f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _leftFlag: {fileID: 2036785157}
+  _rightFlag: {fileID: 2023312716}
 --- !u!61 &732598495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -760,9 +775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219640d0ffa81264d821cbef032aad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
-  _leftFlag: {fileID: 2036785157}
-  _rightFlag: {fileID: 2023312716}
 --- !u!50 &732598498
 Rigidbody2D:
   serializedVersion: 4
@@ -1079,7 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b2e2cf9de9c1c46a012017fa9023b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 620184818}
+  _camera: {fileID: 620184820}
 --- !u!50 &1898416816
 Rigidbody2D:
   serializedVersion: 4

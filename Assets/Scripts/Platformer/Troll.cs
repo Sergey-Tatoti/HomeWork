@@ -2,47 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(MovementTroll))]
 
 public class Troll : MonoBehaviour
 {
-    [SerializeField] private int _speed;
-    [SerializeField] private Transform _leftFlag;
-    [SerializeField] private Transform _rightFlag;
-
-    private SpriteRenderer _spriteRenderer;
+    private MovementTroll _movementTroll;
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _movementTroll = GetComponent<MovementTroll>();
     }
 
     private void Update()
     {
-        Move();
-    }
-
-    private void Move()
-    {
-        ChangeDirection();
-
-        transform.Translate(Vector3.right * _speed * Time.deltaTime);
-    }
-
-    private void ChangeDirection()
-    {
-        transform.Translate(Vector3.right * _speed * Time.deltaTime);
-
-        if (transform.position.x <= _leftFlag.position.x)
-        {
-            _spriteRenderer.flipX = false;
-            _speed = -_speed;
-        }
-
-        if (transform.position.x >= _rightFlag.position.x)
-        {
-            _spriteRenderer.flipX = true;
-            _speed = -_speed;
-        }
+        _movementTroll.Move();
     }
 }

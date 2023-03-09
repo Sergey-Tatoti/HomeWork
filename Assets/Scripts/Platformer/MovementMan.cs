@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 
-public class MoveController : MonoBehaviour
+public class MovementMan : MonoBehaviour
 {
     private const string Speed = "Speed";
     private const int Idle = 0;
