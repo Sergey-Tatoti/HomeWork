@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MakingZombie : MonoBehaviour
+public class ZombieInstantiate : MonoBehaviour
 {
     [SerializeField] private Zombie _zombie;
     [SerializeField] private Transform[] _flagsRespawn;

@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MovementMan))]
-[RequireComponent(typeof(JumpMan))]
+[RequireComponent(typeof(ManMovement))]
+[RequireComponent(typeof(ManJump))]
 
 public class Man : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
 
     private Animator _animator;
-    private MovementMan _moveController;
-    private JumpMan _jumpController;
+    private ManMovement _moveController;
+    private ManJump _jumpController;
     private Rigidbody2D _rigidbody2D;
 
     private void Awake()
     {
-        _moveController = GetComponent<MovementMan>();
-        _jumpController = GetComponent<JumpMan>();
+        _moveController = GetComponent<ManMovement>();
+        _jumpController = GetComponent<ManJump>();
     }
 
     private void Update()

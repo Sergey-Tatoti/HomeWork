@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 
-public class MovementTroll : MonoBehaviour
+public class TrollMovement : MonoBehaviour
 {
     [SerializeField] private int _speed;
     [SerializeField] private Transform _leftFlag;

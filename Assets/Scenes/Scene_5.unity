@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 43368089}
   - component: {fileID: 43368088}
   m_Layer: 5
-  m_Name: HealthDown
+  m_Name: HealthReduce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 963396589}
         m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: HealthDown
+        m_MethodName: ReduceHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 329879567}
   - component: {fileID: 329879566}
   m_Layer: 5
-  m_Name: HealthUp
+  m_Name: HealthIncrease
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 963396589}
         m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: HealthUp
+        m_MethodName: IncreaseHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -828,6 +828,7 @@ GameObject:
   - component: {fileID: 963396586}
   - component: {fileID: 963396585}
   - component: {fileID: 963396589}
+  - component: {fileID: 963396590}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -928,6 +929,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 250c0a4aaf3e1ec4fa7eff553c893f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &963396590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963396584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb56eed729d53d4468de0fc1740d9c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 731476166}

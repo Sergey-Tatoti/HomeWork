@@ -3,47 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Health))]
+
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Slider _slider;
-    [SerializeField] private float _duration;
-    
-    private int _health = 20;
-    private float _tempSliderValue;
+    private Health _health;
 
     private void Awake()
     {
-        _tempSliderValue = _slider.value;
+        _health = GetComponent<Health>();
     }
 
-    public void HealthUp()
+    public void IncreaseHealth()
     {
-        if (_tempSliderValue == _slider.value && _tempSliderValue < _slider.maxValue)
-        {
-            _tempSliderValue += _health;
-            StartCoroutine(ChangeHealth());
-        }
+        _health.Increase();
     }
 
-    public void HealthDown()
+    public void ReduceHealth()
     {
-        if (_tempSliderValue == _slider.value && _tempSliderValue > _slider.minValue)
-        {
-            _tempSliderValue -= _health;
-            StartCoroutine(ChangeHealth());
-        }
-    }
-
-    private IEnumerator ChangeHealth()
-    {
-        float elapsedTime = 0;
-
-        while (_tempSliderValue != _slider.value)
-        {
-            elapsedTime += Time.deltaTime;
-            _slider.value = Mathf.MoveTowards(_slider.value, _tempSliderValue, elapsedTime / _duration);
-
-            yield return null;
-        }
+        _health.Reduce();
     }
 }
