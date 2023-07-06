@@ -219,8 +219,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 963396589}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: ReduceHealth
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Reduce
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -514,8 +514,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 963396589}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: IncreaseHealth
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Increase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -825,10 +825,10 @@ GameObject:
   m_Component:
   - component: {fileID: 963396588}
   - component: {fileID: 963396587}
+  - component: {fileID: 963396590}
+  - component: {fileID: 963396589}
   - component: {fileID: 963396586}
   - component: {fileID: 963396585}
-  - component: {fileID: 963396589}
-  - component: {fileID: 963396590}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -928,7 +928,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 963396584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 250c0a4aaf3e1ec4fa7eff553c893f28, type: 3}
+  m_Script: {fileID: 11500000, guid: fb56eed729d53d4468de0fc1740d9c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &963396590
@@ -940,11 +940,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 963396584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb56eed729d53d4468de0fc1740d9c5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 250c0a4aaf3e1ec4fa7eff553c893f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 731476166}
-  _duration: 1
+  _duration: 2
+  _health: {fileID: 963396589}
 --- !u!1 &1276222421
 GameObject:
   m_ObjectHideFlags: 0

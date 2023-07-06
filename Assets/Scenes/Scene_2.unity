@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 200
+  _signalingTrigger: {fileID: 100470278}
 --- !u!114 &100470278
 MonoBehaviour:
   m_ObjectHideFlags: 0

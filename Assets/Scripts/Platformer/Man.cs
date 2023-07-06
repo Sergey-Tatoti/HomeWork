@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(ManMovement))]
 [RequireComponent(typeof(ManJump))]
 
 public class Man : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
-
     private Animator _animator;
     private ManMovement _moveController;
     private ManJump _jumpController;
     private Rigidbody2D _rigidbody2D;
+
+    public UnityAction DeathMan;
 
     private void Awake()
     {
@@ -28,11 +29,9 @@ public class Man : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var Scene = _camera.GetComponent<Scene>();
-
-        if (other.TryGetComponent<Troll>(out Troll troll))
+        if (other.TryGetComponent<TrollMovement>(out TrollMovement troll))
         {
-            Scene.Reload();
+            DeathMan?.Invoke();
         }
     }
 }

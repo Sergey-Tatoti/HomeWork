@@ -1,24 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[RequireComponent(typeof(Signaling))]
+using UnityEngine.Events;
 
 public class SignalingTrigger : MonoBehaviour
 {
-    private Signaling _signaling;
     private int _maxVolume = 1;
-
-    private void Start()
-    {
-        _signaling = GetComponent<Signaling>();
-    }
+    
+    public UnityAction <int> UseSignalig;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<Rogue>(out Rogue rogue))
         {
-            StartCoroutine(_signaling.UseSound(_maxVolume));
+            UseSignalig?.Invoke(_maxVolume);
         }
     }
 
@@ -26,7 +21,7 @@ public class SignalingTrigger : MonoBehaviour
     {
         if (other.TryGetComponent<Rogue>(out Rogue rogue))
         {
-            StartCoroutine(_signaling.UseSound(0));
+            UseSignalig?.Invoke(0);
         }
     }
 }

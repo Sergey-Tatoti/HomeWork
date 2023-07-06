@@ -17,6 +17,11 @@ public class TrollMovement : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Update() 
+    {
+        Move();
+    }
+
     public void Move()
     {
         transform.Translate(Vector3.right * _speed * Time.deltaTime);

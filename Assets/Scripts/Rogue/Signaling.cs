@@ -7,6 +7,7 @@ using UnityEngine;
 public class Signaling : MonoBehaviour
 {
     [SerializeField] private int _duration;
+    [SerializeField] private SignalingTrigger _signalingTrigger;
 
     private AudioSource _signal;
 
@@ -15,11 +16,31 @@ public class Signaling : MonoBehaviour
         _signal = GetComponent<AudioSource>();
     }
 
-    public IEnumerator UseSound(int target)
+    private void OnEnable()
+    {
+        _signalingTrigger.UseSignalig += UseSound;
+    }
+
+    private void OnDisable()
+    {
+        _signalingTrigger.UseSignalig -= UseSound;
+    }
+
+    private void UseSound(int target)
+    {
+        _signal.enabled = true;
+        
+        StartCoroutine(ChangeSound(target));
+
+        if (_signal.volume == 0)
+        {
+            _signal.enabled = false;
+        }
+    }
+
+    private IEnumerator ChangeSound(int target)
     {
         float elapsedTime = 0;
-
-        _signal.enabled = true;
 
         while (_signal.volume != target)
         {
@@ -27,11 +48,6 @@ public class Signaling : MonoBehaviour
             _signal.volume = Mathf.MoveTowards(_signal.volume, target, elapsedTime / _duration);
 
             yield return null;
-        }
-
-        if(_signal.volume == 0)
-        {
-            _signal.enabled = false;
         }
     }
 }

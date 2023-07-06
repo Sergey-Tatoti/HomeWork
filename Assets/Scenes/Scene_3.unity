@@ -589,6 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509157a0c6853294882b88c461446bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _man: {fileID: 1898416812}
 --- !u!1 &693852496
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,18 +764,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &732598497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732598492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 219640d0ffa81264d821cbef032aad78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &732598498
 Rigidbody2D:
   serializedVersion: 4
@@ -1091,7 +1080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b2e2cf9de9c1c46a012017fa9023b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 620184820}
 --- !u!50 &1898416816
 Rigidbody2D:
   serializedVersion: 4
