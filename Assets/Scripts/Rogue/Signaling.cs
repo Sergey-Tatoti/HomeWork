@@ -18,12 +18,12 @@ public class Signaling : MonoBehaviour
 
     private void OnEnable()
     {
-        _signalingTrigger.UseSignalig += UseSound;
+        _signalingTrigger.RougeCameIn += UseSound;
     }
 
     private void OnDisable()
     {
-        _signalingTrigger.UseSignalig -= UseSound;
+        _signalingTrigger.RougeCameIn -= UseSound;
     }
 
     private void UseSound(int target)
