@@ -5,18 +5,38 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    private int _health = 20;
+    private HealthBar _healthBar;
+    private int _damageHealth = 20;
+    private int _maxHealth = 100;
+    private int _health = 40;
 
-    public UnityAction<int> IncreaseHealth;
-    public UnityAction<int> ReduceHealth;
-
-    public void Increase()
+    private void Awake()
     {
-        IncreaseHealth?.Invoke(_health);
+        _healthBar = GetComponent<HealthBar>();
     }
 
-    public void Reduce()
+    public int CostumizeHealthSlider()
     {
-        ReduceHealth?.Invoke(-_health);
+      return _health;
+    }
+
+    private void Increase()
+    {
+        if (_health < _maxHealth)
+        {
+            _health += _damageHealth;
+
+            _healthBar.Change(_damageHealth);
+        }
+    }
+
+    private void Reduce()
+    {
+        if (_health > 0)
+        {
+            _health -= _damageHealth;
+
+            _healthBar.Change(-_damageHealth);
+        }
     }
 }

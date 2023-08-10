@@ -7,13 +7,13 @@ public class SignalingTrigger : MonoBehaviour
 {
     private int _maxVolume = 1;
     
-    public UnityAction <int> RougeCameIn;
+    public UnityAction <int> UseSound;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<Rogue>(out Rogue rogue))
         {
-            RougeCameIn?.Invoke(_maxVolume);
+            UseSound?.Invoke(_maxVolume);
         }
     }
 
@@ -21,7 +21,7 @@ public class SignalingTrigger : MonoBehaviour
     {
         if (other.TryGetComponent<Rogue>(out Rogue rogue))
         {
-            RougeCameIn?.Invoke(0);
+            UseSound?.Invoke(0);
         }
     }
 }

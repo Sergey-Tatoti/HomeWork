@@ -811,7 +811,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 40
+  m_Value: 75.4
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -945,7 +945,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 731476166}
   _duration: 2
-  _health: {fileID: 963396589}
 --- !u!1 &1276222421
 GameObject:
   m_ObjectHideFlags: 0
