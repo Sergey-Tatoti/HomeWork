@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : Health
 {
+    [SerializeField] private Health _health;
     [SerializeField] private Slider _slider;
     [SerializeField] private float _duration;
 
@@ -12,11 +13,20 @@ public class HealthBar : Health
 
     private void Awake()
     {
-        _slider.value = CostumizeHealthSlider();
+        _slider.value = _startHealth;
         _tempSliderValue = _slider.value;
     }
 
-    public void Change(int health)
+    private void OnEnable() 
+    {
+        _health.MoveSlider += OnChange;
+    }
+    private void OnDisable() 
+    {
+        _health.MoveSlider -= OnChange;
+    }
+
+    private void OnChange(int health)
     {
         _tempSliderValue += health;
 

@@ -943,6 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250c0a4aaf3e1ec4fa7eff553c893f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 963396589}
   _slider: {fileID: 731476166}
   _duration: 2
 --- !u!1 &1276222421
