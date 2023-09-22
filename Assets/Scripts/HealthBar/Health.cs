@@ -5,19 +5,19 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    private int _damageHealth = 20;
+    private int _damage = 10;
     private int _maxHealth = 100;
 
-    public UnityAction <int> MoveSlider;
+    public UnityAction <int> MoveHealth;
     public int _startHealth {get; private set;} = 40;
 
     private void Increase()
     {
         if (_startHealth < _maxHealth)
         {
-            _startHealth += _damageHealth;
+            _startHealth += _damage;
 
-            MoveSlider?.Invoke(_damageHealth);
+            MoveHealth?.Invoke(_damage);
         }
     }
 
@@ -25,9 +25,9 @@ public class Health : MonoBehaviour
     {
         if (_startHealth > 0)
         {
-            _startHealth -= _damageHealth;
+            _startHealth -= _damage;
 
-            MoveSlider?.Invoke(-_damageHealth);
+            MoveHealth?.Invoke(-_damage);
         }
     }
 }

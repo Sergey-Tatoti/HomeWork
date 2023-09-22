@@ -19,14 +19,15 @@ public class HealthBar : Health
 
     private void OnEnable() 
     {
-        _health.MoveSlider += OnChange;
-    }
-    private void OnDisable() 
-    {
-        _health.MoveSlider -= OnChange;
+        _health.MoveHealth += OnMoveHealth;
     }
 
-    private void OnChange(int health)
+    private void OnDisable() 
+    {
+        _health.MoveHealth -= OnMoveHealth;
+    }
+
+    private void OnMoveHealth(int health)
     {
         _tempSliderValue += health;
 
