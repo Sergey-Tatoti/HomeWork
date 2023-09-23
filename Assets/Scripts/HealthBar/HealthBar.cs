@@ -9,24 +9,30 @@ public class HealthBar : Health
     [SerializeField] private Slider _slider;
     [SerializeField] private float _duration;
 
+    private bool _canDrow = true;
+
     private void Awake()
     {
         _slider.value = _startHealth;
     }
 
-    private void OnEnable() 
+    private void OnEnable()
     {
-        _health.MoveHealth += OnMoveHealth;
+        _health.HealthChanged += OnHealthChanged;
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
-        _health.MoveHealth -= OnMoveHealth;
+        _health.HealthChanged -= OnHealthChanged;
     }
 
-    private void OnMoveHealth(int health)
+    private void OnHealthChanged(int health)
     {
-        StartCoroutine(Draw(health));
+        if (_canDrow == true)
+        {
+            StartCoroutine(Draw(health));
+            _canDrow = false;
+        }
     }
 
     private IEnumerator Draw(int health)
@@ -40,5 +46,7 @@ public class HealthBar : Health
 
             yield return null;
         }
+
+        _canDrow = true;
     }
 }

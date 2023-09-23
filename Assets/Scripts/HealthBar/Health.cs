@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     private int _damage = 10;
     private int _maxHealth = 100;
 
-    public UnityAction <int> MoveHealth;
+    public UnityAction <int> HealthChanged;
 
     public int _startHealth {get; private set;} = 40;
 
@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
         {
             _startHealth += _damage;
 
-            MoveHealth?.Invoke(_startHealth);
+            HealthChanged?.Invoke(_startHealth);
         }
     }
 
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
         {
             _startHealth -= _damage;
 
-            MoveHealth?.Invoke(_startHealth);
+            HealthChanged?.Invoke(_startHealth);
         }
     }
 }
