@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     private int _maxHealth = 100;
 
     public UnityAction <int> MoveHealth;
+
     public int _startHealth {get; private set;} = 40;
 
     private void Increase()
@@ -17,7 +18,7 @@ public class Health : MonoBehaviour
         {
             _startHealth += _damage;
 
-            MoveHealth?.Invoke(_damage);
+            MoveHealth?.Invoke(_startHealth);
         }
     }
 
@@ -27,7 +28,7 @@ public class Health : MonoBehaviour
         {
             _startHealth -= _damage;
 
-            MoveHealth?.Invoke(-_damage);
+            MoveHealth?.Invoke(_startHealth);
         }
     }
 }

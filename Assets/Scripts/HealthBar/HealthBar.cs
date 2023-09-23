@@ -9,12 +9,9 @@ public class HealthBar : Health
     [SerializeField] private Slider _slider;
     [SerializeField] private float _duration;
 
-    private float _tempSliderValue;
-
     private void Awake()
     {
         _slider.value = _startHealth;
-        _tempSliderValue = _slider.value;
     }
 
     private void OnEnable() 
@@ -29,19 +26,17 @@ public class HealthBar : Health
 
     private void OnMoveHealth(int health)
     {
-        _tempSliderValue += health;
-
-        StartCoroutine(Draw());
+        StartCoroutine(Draw(health));
     }
 
-    private IEnumerator Draw()
+    private IEnumerator Draw(int health)
     {
         float elapsedTime = 0;
 
-        while (_tempSliderValue != _slider.value)
+        while (health != _slider.value)
         {
             elapsedTime += Time.deltaTime;
-            _slider.value = Mathf.MoveTowards(_slider.value, _tempSliderValue, elapsedTime / _duration);
+            _slider.value = Mathf.MoveTowards(_slider.value, health, elapsedTime / _duration);
 
             yield return null;
         }
