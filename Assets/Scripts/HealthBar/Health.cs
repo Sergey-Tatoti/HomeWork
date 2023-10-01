@@ -7,28 +7,38 @@ public class Health : MonoBehaviour
 {
     private int _damage = 10;
     private int _maxHealth = 100;
+    private int _currentHealth = 40;
 
-    public UnityAction <int> HealthChanged;
+    public UnityAction<int> HealthChanged;
 
-    public int _startHealth {get; private set;} = 40;
+    private void Start() 
+    {
+        HealthChanged?.Invoke(_currentHealth);
+    }
 
     private void Increase()
     {
-        if (_startHealth < _maxHealth)
+        if (_currentHealth < _maxHealth)
         {
-            _startHealth += _damage;
+            _currentHealth += _damage;
 
-            HealthChanged?.Invoke(_startHealth);
+            if (_currentHealth > _maxHealth)
+                _currentHealth = _maxHealth;
+
+            HealthChanged?.Invoke(_currentHealth);
         }
     }
 
     private void Reduce()
     {
-        if (_startHealth > 0)
+        if (_currentHealth > 0)
         {
-            _startHealth -= _damage;
+            _currentHealth -= _damage;
 
-            HealthChanged?.Invoke(_startHealth);
+            if (_currentHealth < 0)
+                _currentHealth = 0;
+
+            HealthChanged?.Invoke(_currentHealth);
         }
     }
 }

@@ -11,11 +11,6 @@ public class HealthBar : Health
 
     private bool _canDrow = true;
 
-    private void Awake()
-    {
-        _slider.value = _startHealth;
-    }
-
     private void OnEnable()
     {
         _health.HealthChanged += OnHealthChanged;
