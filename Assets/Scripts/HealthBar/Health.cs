@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    private int _damage = 10;
+    private int _damage = 9;
     private int _maxHealth = 100;
     private int _currentHealth = 40;
 
-    public UnityAction<int> HealthChanged;
+    public event UnityAction<int> HealthChanged;
 
     private void Start() 
     {
@@ -21,9 +21,7 @@ public class Health : MonoBehaviour
         if (_currentHealth < _maxHealth)
         {
             _currentHealth += _damage;
-
-            if (_currentHealth > _maxHealth)
-                _currentHealth = _maxHealth;
+            _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
 
             HealthChanged?.Invoke(_currentHealth);
         }
@@ -34,9 +32,7 @@ public class Health : MonoBehaviour
         if (_currentHealth > 0)
         {
             _currentHealth -= _damage;
-
-            if (_currentHealth < 0)
-                _currentHealth = 0;
+            _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
 
             HealthChanged?.Invoke(_currentHealth);
         }
